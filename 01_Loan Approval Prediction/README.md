@@ -1,52 +1,52 @@
 # Loan Approval Prediction
 
-**Overview**
+Overview
+--------
 
-This project predicts whether a loan application will be approved based on applicant attributes. The notebook performs data exploration, preprocessing, feature encoding, and model comparison using classical supervised learning algorithms.
+Predict whether a loan application will be approved using applicant attributes. This project demonstrates a concise EDA → preprocessing → modeling workflow and compares several classical classifiers.
 
-**Dataset**
+Dataset
+-------
 
-- File: `anaconda_projects/db/LoanApprovalPrediction.csv`
-- Notes: Contains applicant demographics and loan-related fields. The `Loan_ID` column is dropped during preprocessing.
+- Location: `anaconda_projects/db/LoanApprovalPrediction.csv`
+- Notes: Typical loan-application attributes; `Loan_ID` is removed during preprocessing in the notebook.
 
-**Approach**
+What this notebook does
+----------------------
 
-1. Exploratory data analysis and visualizations (categorical distributions, correlation heatmap).
-2. Missing-value handling (mean imputation for numeric features).
-3. Label encoding for categorical variables.
-4. Train/test split and model training.
-5. Models compared: RandomForest, K-Nearest Neighbours, Support Vector Classifier, Logistic Regression.
-6. Evaluation: accuracy (training and test), confusion matrices and visual checks.
+- Exploratory data analysis and visualizations (categorical distributions, correlation heatmap).
+- Handle missing values (mean imputation for numeric features).
+- Encode categorical variables (LabelEncoder).
+- Train/test split and train baseline models (RandomForest, KNN, SVC, LogisticRegression).
+- Evaluate using accuracy and confusion matrices.
 
-**Files**
+Quick start
+-----------
 
-- `anaconda_projects/db/Loan Approval Prediction.ipynb` — main notebook
-- `anaconda_projects/db/LoanApprovalPrediction.csv` — dataset
+1. Create and activate a Python environment (PowerShell):
 
-**Requirements**
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
 
-- Python 3.8+
-- pandas, numpy, matplotlib, seaborn
-- scikit-learn
-
-Install with pip:
+2. Install minimal dependencies:
 
 ```powershell
 pip install pandas numpy matplotlib seaborn scikit-learn
 ```
 
-**How to run**
+3. Open `anaconda_projects/db/Loan Approval Prediction.ipynb` and run cells.
 
-1. Open the notebook `anaconda_projects/db/Loan Approval Prediction.ipynb` in Jupyter or VS Code.
-2. Ensure the CSV file is present at `anaconda_projects/db/LoanApprovalPrediction.csv`.
-3. Run cells sequentially; training and EDA are executed in the notebook.
+Notes & next steps
+------------------
 
-**Notes & Suggestions**
+- Use stratified sampling or cross-validation to handle class imbalance and obtain robust scores.
+- For deployment, save the trained pipeline (preprocessing + model) with `joblib` and add a small inference script.
+- I can generate a `requirements.txt` or an inference script on request.
 
-- Consider using stratified sampling if classes are imbalanced.
-- Add cross-validation for robust model selection and hyperparameter tuning.
-- For production use, export the selected model and add a small inference script.
+Files
+-----
 
----
-
-*If you want, I can add a requirements file (`requirements.txt`) and a small `run_inference.py` script.*
+- `anaconda_projects/db/Loan Approval Prediction.ipynb` (notebook)
+- `anaconda_projects/db/LoanApprovalPrediction.csv` (dataset)
