@@ -1,47 +1,51 @@
 # Heart Disease Prediction (Logistic Regression)
 
-**Overview**
+Overview
+--------
 
-This project builds a logistic regression model to predict 10-year risk of coronary heart disease using a subset of clinical features. The notebook focuses on preprocessing, feature selection, model training, and evaluation.
+Predict 10-year coronary heart disease (CHD) risk using clinical features. The notebook focuses on standard preprocessing, scaling, logistic regression modeling, and evaluation with classification metrics.
 
-**Dataset**
+Dataset
+-------
 
-- File: `anaconda_projects/db/framingham.csv`
-- Notes: Standard cardiovascular risk dataset; the `education` column is removed in the notebook and `male` is renamed to `Sex_male`.
+- Location: `anaconda_projects/db/framingham.csv`
+- Notes: The notebook removes the `education` column and renames the `male` field to `Sex_male` for clarity.
 
-**Approach**
+Workflow
+--------
 
-1. Data cleaning (dropna to remove incomplete records).
-2. Feature selection for model inputs: `age`, `Sex_male`, `cigsPerDay`, `totChol`, `sysBP`, `glucose`.
-3. Scaling using `StandardScaler` and splitting into train/test sets.
-4. Train logistic regression classifier.
-5. Evaluate with accuracy, classification report, confusion matrix and visualizations.
+- Clean data and drop incomplete records.
+- Select predictive features: `age`, `Sex_male`, `cigsPerDay`, `totChol`, `sysBP`, `glucose`.
+- Scale numeric features with `StandardScaler`.
+- Train a `LogisticRegression` baseline and evaluate using accuracy, classification report, and a confusion matrix.
 
-**Files**
+Quick start
+-----------
 
-- `anaconda_projects/db/Heart Disease Prediction Using Logistic Regression.ipynb` — main notebook
-- `anaconda_projects/db/framingham.csv` — dataset
+1. Create and activate a virtual environment:
 
-**Requirements**
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
 
-- Python 3.8+
-- pandas, numpy, matplotlib, seaborn
-- scikit-learn
-
-Install with pip:
+2. Install dependencies:
 
 ```powershell
 pip install pandas numpy matplotlib seaborn scikit-learn
 ```
 
-**How to run**
+3. Open `anaconda_projects/db/Heart Disease Prediction Using Logistic Regression.ipynb` and run cells.
 
-1. Open the notebook in Jupyter or VS Code.
-2. Confirm `framingham.csv` is present under `anaconda_projects/db`.
-3. Run the notebook cells in order to reproduce preprocessing, model training, and evaluation.
+Notes & improvements
+-------------------
 
-**Notes & Suggestions**
+- Try regularization and hyperparameter tuning to reduce overfitting.
+- Use stratified cross-validation to account for class imbalance.
+- Save the final model with `joblib` and add a small inference script for deployment.
 
-- Consider exploring additional features and regularization to improve generalization.
-- Use stratified cross-validation for stable performance estimates when class imbalance exists.
-- Add model persistence (joblib) and a minimal inference example if you want to deploy the model.
+Files
+-----
+
+- `anaconda_projects/db/Heart Disease Prediction Using Logistic Regression.ipynb` (notebook)
+- `anaconda_projects/db/framingham.csv` (dataset)
