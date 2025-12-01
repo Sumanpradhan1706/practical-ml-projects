@@ -1,96 +1,152 @@
-# Practical ML Projects
+﻿# Practical ML Projects
 
-**Overview**
+> A curated collection of five practical, end-to-end machine learning demos. Each project is self-contained, reproducible, and designed for rapid experimentation and learning.
 
-This repository contains five small-to-medium end-to-end machine learning projects created for learning and demonstration purposes. Each project includes a Jupyter notebook with exploratory data analysis, preprocessing, model training, and evaluation. Projects are organized into separate folders so you can open, run, and adapt them independently.
+---
 
-**Projects**
+## Table of contents
 
-- **01_Loan Approval Prediction** — Predict whether a loan application will be approved. The notebook demonstrates EDA, label encoding, missing-value handling, and compares several classifiers (Random Forest, KNN, SVC, Logistic Regression).
-  - Location: `01_Loan Approval Prediction`
-  - Notebook: `01_Loan Approval Prediction/anaconda_projects/db/Loan Approval Prediction.ipynb`
+- [Project overview](#project-overview)
+- [Quick start](#quick-start)
+- [Project summaries](#project-summaries)
+- [Data & large files](#data--large-files)
+- [Environment & reproducibility](#environment--reproducibility)
+- [Recommended workflow](#recommended-workflow)
+- [Contributing](#contributing)
+- [Contact & license](#contact--license)
 
-- **02_Heart Disease Prediction Using Logistic Regression** — Build a logistic regression classifier to predict 10-year risk of coronary heart disease using clinical features. Includes scaling, train/test split, evaluation and confusion matrix.
-  - Location: `02_Heart Disease Prediction Using Logistic Regression`
-  - Notebook: `02_Heart Disease Prediction Using Logistic Regression/anaconda_projects/db/Heart Disease Prediction Using Logistic Regression.ipynb`
+---
 
-- **03_House_Price_Prediction** — Regression task predicting house sale prices. The notebook includes one-hot encoding of categorical features, model comparison (SVR, Random Forest, Linear Regression), and MAPE evaluation.
-  - Location: `03_House_Price_Prediction`
-  - Notebook: `03_House_Price_Prediction/anaconda_projects/db/House_Price_Prediction.ipynb`
+## Project overview
 
-- **04_Credit_Card_Fraud_Detection** — Detect fraudulent credit card transactions. Shows EDA, class imbalance handling, trains a RandomForestClassifier, and reports precision/recall/F1/MCC with confusion matrix. NOTE: the original `creditcard.csv` is large and may be excluded from this repository.
-  - Location: `04_Credit_Card_Fraud_Detection`
-  - Notebook: `04_Credit_Card_Fraud_Detection/anaconda_projects/db/Credit Card Fraud Detection.ipynb`
+This repository contains five focused machine-learning projects with notebooks that cover data exploration, preprocessing, feature engineering, modeling, and evaluation. Projects are organized so you can run a single notebook end-to-end or extend components into production-ready pipelines.
 
-- **05_Box Office Revenue Prediction** — Predicts domestic box office revenue using structured metadata and bag-of-words features from genres. Uses XGBoost for regression after thorough preprocessing and feature engineering.
-  - Location: `05_Box Office Revenue Prediction`
-  - Notebook: `05_Box Office Revenue Prediction/anaconda_projects/db/Box Office Revenue Prediction.ipynb`
+Folder list:
 
-**Quick Start**
+- `01_Loan Approval Prediction`
+- `02_Heart Disease Prediction Using Logistic Regression`
+- `03_House_Price_Prediction`
+- `04_Credit_Card_Fraud_Detection`
+- `05_Box Office Revenue Prediction`
 
-1. Clone or open the repository in VS Code / Jupyter Lab.
+---
+
+## Quick start
+
+1. Clone the repository:
 
 ```powershell
-# Example: clone the repo (if not already cloned)
 git clone https://github.com/Sumanpradhan1706/practical-ml-projects.git
 cd "practical-ml-projects"
 ```
 
-2. (Recommended) Create and activate a Python environment, then install required packages.
+2. Create and activate a Python virtual environment (PowerShell):
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
 ```
 
-If you prefer to install only common packages used across projects:
+3. Install core dependencies used across projects (or use per-project `requirements.txt` if present):
 
 ```powershell
 pip install pandas numpy matplotlib seaborn scikit-learn xgboost openpyxl
 ```
 
-3. Open any project's notebook in Jupyter or VS Code and run cells sequentially.
+4. Open a project's notebook in Jupyter or VS Code and run cells sequentially.
 
-**Data & Large Files**
+---
 
-- Small datasets are included in their respective `anaconda_projects/db/` folders (e.g., `LoanApprovalPrediction.csv`, `framingham.csv`, `HousePricePrediction.xlsx`, `boxoffice.csv`).
-- The `creditcard.csv` dataset used by the credit-card fraud project is large and may be intentionally excluded from version control to keep the repository lightweight. If you need it, download from a public source (for example the Kaggle dataset) and place it at:
+## Project summaries
+
+### 01 — Loan Approval Prediction
+- Notebook: `01_Loan Approval Prediction/anaconda_projects/db/Loan Approval Prediction.ipynb`
+- Summary: Classification of loan approval outcomes. Demonstrates EDA, label encoding, imputation, and baseline comparison across RandomForest, KNN, SVC, and Logistic Regression.
+
+### 02 — Heart Disease Prediction (Logistic Regression)
+- Notebook: `02_Heart Disease Prediction Using Logistic Regression/anaconda_projects/db/Heart Disease Prediction Using Logistic Regression.ipynb`
+- Summary: Predict 10-year CHD risk with clinical features. Shows standard scaling, train/test split, logistic regression baseline, and confusion-matrix analysis.
+
+### 03 — House Price Prediction
+- Notebook: `03_House_Price_Prediction/anaconda_projects/db/House_Price_Prediction.ipynb`
+- Summary: Regression pipeline including one-hot encoding, model comparison (SVR, RandomForest, Linear Regression), and evaluation with MAPE.
+
+### 04 — Credit Card Fraud Detection
+- Notebook: `04_Credit_Card_Fraud_Detection/anaconda_projects/db/Credit Card Fraud Detection.ipynb`
+- Summary: Fraud detection on transactional data. Includes EDA for imbalanced classes, RandomForest baseline, and evaluation with precision/recall/F1 and MCC.
+
+### 05 — Box Office Revenue Prediction
+- Notebook: `05_Box Office Revenue Prediction/anaconda_projects/db/Box Office Revenue Prediction.ipynb`
+- Summary: Predicts domestic revenue using structured features and text-derived genre features (CountVectorizer) with XGBoost regression.
+
+---
+
+## Data & large files
+
+- Small datasets are stored in each project's `anaconda_projects/db/` directory (for example: `LoanApprovalPrediction.csv`, `framingham.csv`, `HousePricePrediction.xlsx`, `boxoffice.csv`).
+- The `creditcard.csv` dataset is large and may not be included in the repository to keep the repo lightweight. To run the fraud notebook, download the dataset (for example from Kaggle) and place it at:
 
 ```
 04_Credit_Card_Fraud_Detection\anaconda_projects\db\creditcard.csv
 ```
 
-- If you want large datasets tracked by the repo, consider enabling Git LFS and migrating them (`git lfs install` / `git lfs track \"path\"`).
+- To track large files in Git, use Git LFS. Example:
 
-**Recommended Workflow**
-
-- Keep datasets out of Git when they exceed size limits. Instead: store locally, use cloud storage, or use Git LFS for tracked large files.
-- Use `requirements.txt` per project to pin reproducible environments. I can generate these for each project on request.
-- When editing notebooks, clear output before committing to keep repository size small.
-
-**Contributing**
-
-Contributions are welcome. Suggested workflow:
-
-- Create a branch for your change: `git checkout -b feat/your-change`
-- Run and validate notebooks locally.
-- Open a Pull Request describing your improvements.
-
-If you want me to: I can add per-project `requirements.txt`, small inference scripts, or CI hooks to validate notebooks automatically.
-
-**Contact & License**
-
-- Author: Suman Pradhan
-- Repository: `practical-ml-projects`
-
-License: add an open-source license file if you want this repo publicly reusable (MIT, Apache-2.0, etc.).
+```powershell
+git lfs install
+git lfs track "04_Credit_Card_Fraud_Detection/anaconda_projects/db/creditcard.csv"
+```
 
 ---
 
-If you'd like, I can now:
-- (A) Generate per-project `requirements.txt` files, or
-- (B) Add a small `scripts/` folder with `run_notebook.ps1` helpers, or
-- (C) Configure Git LFS and migrate selected large files (e.g., `creditcard.csv`).
+## Environment & reproducibility
 
-Tell me which and I will proceed.
+- Use virtual environments (venv or conda) and pin dependencies with `requirements.txt` or `environment.yml` for reproducibility.
+- I can generate per-project `requirements.txt` files on request.
+
+Example (PowerShell):
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r "01_Loan Approval Prediction/requirements.txt"
+```
+
+---
+
+## Recommended workflow
+
+- Keep large datasets out of Git history. Use cloud storage, shared drives, or Git LFS.
+- Clear notebook outputs before committing to reduce repository size.
+- Work in feature branches and open small pull requests for review.
+
+---
+
+## Contributing
+
+Contributions are welcome. Suggested flow:
+
+1. Fork the repository and create a feature branch: `git checkout -b feat/your-change`
+2. Run and validate notebooks locally.
+3. Open a Pull Request with a clear description and any results or evaluation metrics.
+
+If you want, I can add CI that validates notebooks and runs lightweight tests.
+
+---
+
+## Contact & license
+
+- Author: Suman Pradhan
+- Repo: `practical-ml-projects`
+
+If you want the repository to be publicly reusable, add a license file (MIT or Apache-2.0 are common choices). I can add an appropriate `LICENSE` file for you.
+
+---
+
+## Next steps I can take
+
+- (A) Generate `requirements.txt` files for each project.
+- (B) Add `scripts/` helpers (for example `run_notebook.ps1`) to open notebooks in a clean environment.
+- (C) Configure Git LFS and migrate large datasets (e.g., `creditcard.csv`).
+
+Reply with the option letter(s) you prefer and I'll proceed.
