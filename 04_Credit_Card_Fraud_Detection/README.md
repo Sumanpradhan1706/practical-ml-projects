@@ -1,44 +1,51 @@
 # Credit Card Fraud Detection
 
-**Overview**
+Overview
+--------
 
-This project detects fraudulent credit card transactions using machine learning. The notebook focuses on data exploration, handling extreme class imbalance, training a classifier, and evaluating multiple metrics suited for imbalanced classification.
+Detect fraudulent credit card transactions using supervised learning. This notebook demonstrates EDA for imbalanced data, a RandomForest baseline, and comprehensive evaluation (precision, recall, F1, MCC).
 
-**Dataset**
+Dataset
+-------
 
-- Notebook expects: `anaconda_projects/db/creditcard.csv` (commonly available from Kaggle — NOT included in this repository due to size limits).
-- If `creditcard.csv` is not present, download from a public source (for example, the Kaggle "Credit Card Fraud Detection" dataset) and place it at `anaconda_projects/db/creditcard.csv`.
+- Expected location: `anaconda_projects/db/creditcard.csv` (commonly obtained from Kaggle's "Credit Card Fraud Detection" dataset).
+- Note: This dataset is large and may be excluded from the repository. Download and place locally to run the notebook.
 
-**Approach**
+Workflow
+--------
 
-1. EDA and correlation analysis.
-2. Train-test split and feature/label separation.
-3. Train a `RandomForestClassifier` and predict on the test set.
-4. Evaluation with accuracy, precision, recall, F1-score, Matthews correlation coefficient, and confusion matrix visualization.
+- Load and inspect the dataset; visualize class imbalance and amounts.
+- Separate features and labels, split into train/test sets.
+- Train a `RandomForestClassifier` baseline and compute predictions on the test set.
+- Evaluate using accuracy, precision, recall, F1-score, Matthews correlation coefficient, and confusion matrix visualization.
 
-**Files**
+Quick start
+-----------
 
-- `anaconda_projects/db/Credit Card Fraud Detection.ipynb` — main notebook
+1. Download `creditcard.csv` from a public source (for example, Kaggle) and place it in:
 
-**Requirements**
+```
+04_Credit_Card_Fraud_Detection\anaconda_projects\db\creditcard.csv
+```
 
-- Python 3.8+
-- pandas, numpy, matplotlib, seaborn
-- scikit-learn
-
-Install with pip:
+2. Create a virtual environment and install dependencies:
 
 ```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install pandas numpy matplotlib seaborn scikit-learn
 ```
 
-**How to run**
+3. Open `anaconda_projects/db/Credit Card Fraud Detection.ipynb` and run cells.
 
-1. Download `creditcard.csv` (if not present) and save it to `anaconda_projects/db/`.
-2. Open the notebook and run cells sequentially.
+Notes & improvements
+------------------
 
-**Notes & Suggestions**
+- Strong class imbalance requires careful metric selection; consider using precision-recall curves and ROC AUC.
+- Try resampling strategies (SMOTE/undersampling) or tree-based gradient boosters (XGBoost / LightGBM) for improved performance.
+- If you plan to keep the dataset under version control, use Git LFS to avoid exceeding GitHub limits.
 
-- The original dataset file was large and excluded from the main branch to keep the repository lightweight. If you want this dataset tracked by the repo, I recommend using Git LFS.
-- Consider sampling strategies and specialized algorithms (e.g., XGBoost, LightGBM) or resampling (SMOTE) for improved performance on imbalanced data.
-- Add a small `data/` README describing the dataset source and licensing if you plan to keep the dataset externally.
+Files
+-----
+
+- `anaconda_projects/db/Credit Card Fraud Detection.ipynb` (notebook)
