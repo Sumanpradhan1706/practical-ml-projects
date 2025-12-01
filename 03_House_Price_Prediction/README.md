@@ -1,50 +1,52 @@
 # House Price Prediction
 
-**Overview**
+Overview
+--------
 
-This project investigates house price prediction using regression models. It includes exploratory analysis, encoding of categorical variables, and evaluation of multiple regressors.
+Predict house sale prices using structured features and categorical encoding. The notebook demonstrates preprocessing, one-hot encoding, and evaluation of multiple regression models.
 
-**Dataset**
+Dataset
+-------
 
-- File: `anaconda_projects/db/HousePricePrediction.xlsx`
-- Notes: The notebook drops the `Id` column and applies imputation for `SalePrice`.
+- Location: `anaconda_projects/db/HousePricePrediction.xlsx`
+- Notes: `Id` column is removed; `SalePrice` missing values are imputed in the notebook.
 
-**Approach**
+Workflow
+--------
 
-1. EDA: inspect categorical and numeric feature distributions and correlations.
-2. Drop `Id`, fill missing values and remove rows with many missing entries.
-3. One-hot encode categorical variables using `OneHotEncoder` and merge encoded columns.
-4. Split into training and validation sets and train models:
-   - Support Vector Regression (SVR)
-   - Random Forest Regressor
-   - Linear Regression
-5. Evaluate using Mean Absolute Percentage Error (MAPE) and other regression metrics.
+- Inspect numeric and categorical features; visualize correlations and distributions.
+- Drop identifier columns and handle missing values via imputation or row removal.
+- One-hot encode categorical features using `OneHotEncoder` and assemble final feature matrix.
+- Train and compare SVR, RandomForestRegressor, and LinearRegression models.
+- Evaluate using Mean Absolute Percentage Error (MAPE) and similar metrics.
 
-**Files**
+Quick start
+-----------
 
-- `anaconda_projects/db/House_Price_Prediction.ipynb` — main notebook
-- `anaconda_projects/db/HousePricePrediction.xlsx` — dataset
+1. Create and activate a virtual environment (PowerShell):
 
-**Requirements**
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
 
-- Python 3.8+
-- pandas, numpy, scikit-learn, matplotlib, seaborn
-- `openpyxl` or `xlrd` to read Excel files
-
-Install with pip:
+2. Install dependencies:
 
 ```powershell
 pip install pandas numpy scikit-learn matplotlib seaborn openpyxl
 ```
 
-**How to run**
+3. Open `anaconda_projects/db/House_Price_Prediction.ipynb` and run cells.
 
-1. Open the notebook file in Jupyter or VS Code.
-2. Ensure `HousePricePrediction.xlsx` is present at `anaconda_projects/db`.
-3. Execute cells sequentially. Training may take some time depending on model choice and machine resources.
+Notes & improvements
+-------------------
 
-**Notes & Suggestions**
+- After one-hot encoding, consider dimensionality reduction (PCA) or feature selection to reduce model size.
+- Use hyperparameter search (GridSearchCV/RandomizedSearchCV) to tune models.
+- Persist the best model and preprocessing pipeline for deployment.
 
-- Consider dimensionality reduction or feature selection after one-hot encoding to reduce model complexity.
-- Use hyperparameter tuning (GridSearchCV) for each model to improve results.
-- Save the final model and preprocessing pipeline for reproducible inference.
+Files
+-----
+
+- `anaconda_projects/db/House_Price_Prediction.ipynb` (notebook)
+- `anaconda_projects/db/HousePricePrediction.xlsx` (dataset)
