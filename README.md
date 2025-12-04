@@ -29,6 +29,10 @@ Folder list:
 - `04_Credit_Card_Fraud_Detection`
 - `05_Box Office Revenue Prediction`
 
+- `06_Recommendation System in Python`
+
+- `07_Customer Segmentation using Unsupervised Machine Learning in Python`
+
 ---
 
 ## Quick start
@@ -78,6 +82,14 @@ pip install pandas numpy matplotlib seaborn scikit-learn xgboost openpyxl
 ### 05 — Box Office Revenue Prediction
 - Notebook: `05_Box Office Revenue Prediction/anaconda_projects/db/Box Office Revenue Prediction.ipynb`
 - Summary: Predicts domestic revenue using structured features and text-derived genre features (CountVectorizer) with XGBoost regression.
+
+### 06 — Recommendation System in Python
+- Notebook: `06_Recommendation System in Python/anaconda_projects/db/Recommendation System in Python.ipynb`
+- Summary: Item-based movie recommendation demo using a sparse item×user matrix and cosine-similarity nearest-neighbors (scikit-learn). Includes example `recommend_similar(...)` helper.
+
+### 07 — Customer Segmentation (Unsupervised ML)
+- Notebook: `07_Customer Segmentation using Unsupervised Machine Learning in Python/anaconda_projects/db/Customer Segmentation using Unsupervised Machine Learning in Python.ipynb`
+- Summary: Customer segmentation pipeline with data cleaning, label encoding, scaling, t-SNE visualization and K-Means clustering. Demonstrates cluster selection via the elbow method and segment profiling.
 
 ---
 
